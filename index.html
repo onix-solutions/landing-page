@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONIX | Tecnologia que move negócios</title>
+  <meta name="description" content="Consultoria, desenvolvimento e suporte de tecnologia para empresas que querem crescer com segurança.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#101b31; --muted:#647088; --blue:#1769ff; --cyan:#28c8e8; --line:#e5eaf2; --soft:#f5f8fc; --white:#fff; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+    h1,h2,h3 { font-family:'Manrope',sans-serif; letter-spacing:-.045em; }
+    p { color:var(--muted); line-height:1.7; }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1160px, calc(100% - 48px)); margin:auto; }
+    .eyebrow { align-items:center; color:var(--blue); display:flex; font-size:12px; font-weight:700; gap:10px; letter-spacing:.14em; text-transform:uppercase; }
+    .eyebrow:before { background:var(--cyan); content:""; height:2px; width:28px; }
+    .topbar { background:var(--ink); color:#b7c7df; font-size:12px; padding:9px 0; }
+    .topbar .container { display:flex; justify-content:space-between; }
+    header { background:rgba(255,255,255,.9); border-bottom:1px solid rgba(229,234,242,.8); position:sticky; top:0; z-index:10; backdrop-filter:blur(18px); }
+    nav { align-items:center; display:flex; height:78px; justify-content:space-between; }
+    .brand { align-items:center; display:flex; gap:12px; }
+    .brand img { height:37px; width:auto; }
+    .brand small { border-left:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.08em; padding-left:12px; text-transform:uppercase; }
+    .nav-links { align-items:center; display:flex; gap:34px; list-style:none; }
+    .nav-links a { color:#46536a; font-size:14px; font-weight:600; transition:color .2s; }
+    .nav-links a:hover { color:var(--blue); }
+    .nav-cta { background:var(--blue); border-radius:7px; color:white!important; padding:12px 19px; }
+    .hero { background:linear-gradient(117deg,#f7faff 0%,#eef5ff 50%,#fff 100%); min-height:645px; overflow:hidden; padding:86px 0 76px; position:relative; }
+    .hero:after { background:radial-gradient(circle,rgba(40,200,232,.18),transparent 68%); content:""; height:600px; position:absolute; right:-130px; top:-190px; width:600px; }
+    .hero-grid { align-items:center; display:grid; gap:70px; grid-template-columns:1fr 1fr; position:relative; z-index:1; }
+    .hero-copy h1 { font-size:clamp(42px,5vw,68px); line-height:1.06; margin:20px 0 24px; max-width:650px; }
+    .hero-copy h1 span { color:var(--blue); }
+    .hero-copy > p { font-size:18px; max-width:530px; }
+    .actions { align-items:center; display:flex; gap:22px; margin-top:34px; }
+    .button { align-items:center; border-radius:7px; display:inline-flex; font-size:14px; font-weight:700; gap:12px; justify-content:center; padding:16px 22px; transition:transform .2s, box-shadow .2s; }
+    .button:hover { box-shadow:0 12px 25px rgba(23,105,255,.2); transform:translateY(-2px); }
+    .button.primary { background:var(--blue); color:white; }
+    .button.text { color:var(--ink); padding-left:0; }
+    .button.text:after { content:'→'; color:var(--blue); font-size:20px; }
+    .hero-note { align-items:center; color:var(--muted); display:flex; font-size:12px; gap:9px; margin-top:25px; }
+    .hero-note strong { color:var(--ink); }
+    .hero-note i { background:#23bd85; border-radius:50%; height:8px; width:8px; }
+    .dashboard { background:var(--ink); border-radius:16px; box-shadow:0 28px 65px rgba(16,27,49,.25); min-height:380px; overflow:hidden; padding:19px; position:relative; transform:rotate(2deg); }
+    .dashboard-top { align-items:center; border-bottom:1px solid rgba(255,255,255,.11); display:flex; justify-content:space-between; padding:2px 5px 17px; }
+    .dashboard-brand { color:white; font-family:'Manrope'; font-size:13px; font-weight:800; letter-spacing:.08em; }
+    .dashboard-brand b { color:var(--cyan); }
+    .dash-dots { display:flex; gap:5px; }.dash-dots i { background:#50627d; border-radius:50%; height:5px; width:5px; }
+    .dash-content { padding:28px 13px 12px; }.dash-content small { color:#91a2bd; font-size:11px; }.dash-content h3 { color:#fff; font-size:24px; margin:6px 0 25px; }
+    .chart { align-items:end; display:flex; gap:10px; height:125px; margin:0 8px 25px; }.bar { background:linear-gradient(180deg,var(--cyan),#1769ff); border-radius:4px 4px 1px 1px; flex:1; opacity:.95; }.bar:nth-child(1){height:42%}.bar:nth-child(2){height:56%}.bar:nth-child(3){height:48%}.bar:nth-child(4){height:77%}.bar:nth-child(5){height:65%}.bar:nth-child(6){height:92%}.bar:nth-child(7){height:82%}
+    .dash-bottom { display:grid; gap:10px; grid-template-columns:1fr 1fr; }.metric { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:13px; }.metric strong { color:#fff; display:block; font-family:'Manrope'; font-size:19px; }.metric span { color:#91a2bd; font-size:10px; }
+    .proof { border-bottom:1px solid var(--line); border-top:1px solid var(--line); padding:22px 0; }.proof .container { align-items:center; display:flex; justify-content:space-between; }.proof p { font-size:12px; }.proof-list { display:flex; gap:42px; list-style:none; }.proof-list li { color:#8591a5; font-family:'Manrope'; font-size:12px; font-weight:700; letter-spacing:.08em; }
+    section { padding:104px 0; }.section-head { margin-bottom:48px; max-width:600px; }.section-head h2 { font-size:clamp(31px,4vw,46px); line-height:1.12; margin:16px 0; }.section-head p { font-size:16px; }
+    .services { background:var(--soft); }.cards { display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }.card { background:white; border:1px solid var(--line); border-radius:12px; min-height:270px; padding:30px; transition:box-shadow .25s, transform .25s; }.card:hover { box-shadow:0 18px 40px rgba(16,27,49,.09); transform:translateY(-5px); }.icon { align-items:center; background:#e9f4ff; border-radius:9px; color:var(--blue); display:flex; font-size:21px; height:47px; justify-content:center; margin-bottom:28px; width:47px; }.card h3 { font-size:19px; margin-bottom:11px; }.card p { font-size:14px; }
+    .process-grid { display:grid; gap:78px; grid-template-columns:.8fr 1.2fr; }.process-intro { position:relative; }.process-intro:after { background:var(--cyan); bottom:-50px; content:""; height:1px; left:0; position:absolute; width:90px; }.steps { display:grid; gap:0; }.step { border-bottom:1px solid var(--line); display:grid; gap:25px; grid-template-columns:40px 1fr; padding:0 0 28px; margin-bottom:28px; }.step-number { align-items:center; border:1px solid #cbd8ec; border-radius:50%; color:var(--blue); display:flex; font-family:'Manrope'; font-size:13px; font-weight:800; height:34px; justify-content:center; width:34px; }.step h3 { font-size:18px; margin-bottom:7px; }.step p { font-size:14px; }
+    .contact { padding-top:20px; }.contact-box { align-items:center; background:linear-gradient(110deg,var(--ink),#164896); border-radius:16px; color:white; display:flex; justify-content:space-between; overflow:hidden; padding:61px 70px; position:relative; }.contact-box:after { border:1px solid rgba(40,200,232,.45); border-radius:50%; content:""; height:320px; position:absolute; right:-70px; top:-170px; width:320px; }.contact-box h2 { font-size:clamp(28px,4vw,42px); line-height:1.12; max-width:550px; position:relative; z-index:1; }.contact-box p { color:#b9c9df; font-size:15px; margin-top:13px; position:relative; z-index:1; }.contact-box .button { background:white; color:var(--blue); flex-shrink:0; position:relative; z-index:1; }
+    footer { background:#0a1324; color:#b9c6d9; padding:40px 0; }.footer-row { align-items:center; display:flex; justify-content:space-between; }.footer-brand { color:white; font-family:'Manrope'; font-size:15px; font-weight:800; }.footer-brand span { color:var(--cyan); }.footer-row p { font-size:12px; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }.reveal.visible { opacity:1; transform:none; }
+    @media (max-width:800px) { .topbar { display:none; } .container { width:min(100% - 34px, 600px); } nav { height:68px; }.brand small,.nav-links li:not(:last-child) { display:none; }.nav-links { gap:0; }.nav-cta { padding:10px 14px; }.hero { min-height:auto; padding:70px 0 65px; }.hero-grid,.process-grid { gap:45px; grid-template-columns:1fr; }.hero-copy h1 { font-size:44px; }.hero-copy > p { font-size:16px; }.dashboard { transform:none; }.proof .container,.footer-row { align-items:flex-start; flex-direction:column; gap:18px; }.proof-list { flex-wrap:wrap; gap:16px 24px; }.cards { grid-template-columns:1fr; } section { padding:76px 0; }.section-head { margin-bottom:32px; }.contact-box { align-items:flex-start; flex-direction:column; gap:30px; padding:40px 27px; }.contact { padding-top:0; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.reveal { opacity:1; transform:none; transition:none; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>ONIX Soluções em Tecnologia</span><span>Atendimento para todo o Brasil</span></div></div>
+  <header><nav class="container">
+    <a class="brand" href="#inicio"><img src="ONIX_logo.png" alt="ONIX"><small>Soluções em TI</small></a>
+    <ul class="nav-links"><li><a href="#servicos">Soluções</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a class="nav-cta" href="#contato">Fale com a ONIX</a></li></ul>
+  </nav></header>
+  <main>
+    <section class="hero" id="inicio"><div class="container hero-grid">
+      <div class="hero-copy reveal"><div class="eyebrow">Tecnologia com propósito</div><h1>Estratégia digital para <span>negócios que evoluem.</span></h1><p>Unimos visão de negócio, tecnologia e suporte próximo para tornar sua operação mais segura, eficiente e preparada para o futuro.</p><div class="actions"><a class="button primary" href="#contato">Vamos conversar <span>→</span></a><a class="button text" href="#servicos">Conheça as soluções</a></div><div class="hero-note"><i></i><span><strong>12+ anos</strong> transformando desafios em resultados</span></div></div>
+      <div class="dashboard reveal" aria-label="Painel ilustrativo de resultados"><div class="dashboard-top"><div class="dashboard-brand">ONIX <b>/</b> INSIGHTS</div><div class="dash-dots"><i></i><i></i><i></i></div></div><div class="dash-content"><small>VISÃO GERAL DA OPERAÇÃO</small><h3>Crescimento consistente</h3><div class="chart"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><div class="dash-bottom"><div class="metric"><strong>+38,6%</strong><span>Performance</span></div><div class="metric"><strong>99,9%</strong><span>Disponibilidade</span></div></div></div></div>
+    </div></section>
+    <div class="proof"><div class="container"><p>TECNOLOGIA QUE GERA VALOR PARA SUA EMPRESA</p><ul class="proof-list"><li>ESTRATÉGIA</li><li>EFICIÊNCIA</li><li>CONTINUIDADE</li><li>INOVAÇÃO</li></ul></div></div>
+    <section class="services" id="servicos"><div class="container"><div class="section-head reveal"><div class="eyebrow">O que fazemos</div><h2>Soluções sob medida para cada desafio.</h2><p>Do planejamento à sustentação, cuidamos da tecnologia para você cuidar do crescimento.</p></div><div class="cards"><article class="card reveal"><div class="icon">⌘</div><h3>Desenvolvimento de Software</h3><p>Sistemas web personalizados, escaláveis e alinhados aos processos que fazem seu negócio avançar.</p></article><article class="card reveal"><div class="icon">◌</div><h3>Consultoria em Tecnologia</h3><p>Clareza para decidir melhor. Mapeamos oportunidades e desenhamos uma estratégia viável para sua operação.</p></article><article class="card reveal"><div class="icon">↗</div><h3>Suporte Contínuo</h3><p>Atendimento próximo e resolutivo para manter seus times produtivos e sua empresa sempre em movimento.</p></article></div></div></section>
+    <section id="processo"><div class="container process-grid"><div class="section-head process-intro reveal"><div class="eyebrow">Nosso processo</div><h2>Menos complexidade. Mais resultado.</h2><p>Trabalhamos de forma transparente, colaborativa e orientada ao impacto real no seu negócio.</p></div><div class="steps"><div class="step reveal"><div class="step-number">01</div><div><h3>Diagnóstico</h3><p>Entendemos seu contexto, desafios e objetivos antes de propor qualquer caminho.</p></div></div><div class="step reveal"><div class="step-number">02</div><div><h3>Estratégia</h3><p>Transformamos necessidades em um plano claro, priorizado e possível de executar.</p></div></div><div class="step reveal"><div class="step-number">03</div><div><h3>Implementação</h3><p>Colocamos a solução em prática com agilidade, acompanhamento e comunicação constante.</p></div></div><div class="step reveal"><div class="step-number">04</div><div><h3>Evolução</h3><p>Monitoramos os resultados e seguimos aprimorando sua operação continuamente.</p></div></div></div></div></section>
+    <section class="contact" id="contato"><div class="container"><div class="contact-box reveal"><div><div class="eyebrow" style="color:#73e5f2">Pronto para avançar?</div><h2>Vamos transformar seu próximo desafio em resultado.</h2><p>Conte um pouco sobre o seu cenário.</p></div><a class="button" href="mailto:contato@onixsolutions.com.br">Falar com um especialista →</a></div></div></section>
+  </main>
+  <footer><div class="container footer-row"><div class="footer-brand">ONIX <span>/</span> Soluções em TI</div><p>contato@onixsolutions.com.br · © ONIX</p></div></footer>
+  <script>
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
+  </script>
+</body>
+</html>
