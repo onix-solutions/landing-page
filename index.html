@@ -5,8 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ONIX | Tecnologia que move negócios</title>
   <meta name="description" content="Consultoria, desenvolvimento e suporte de tecnologia para empresas que querem crescer com segurança.">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="canonical" href="https://onixsolutions.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://onixsolutions.com.br/">
+  <meta property="og:title" content="ONIX | Tecnologia que move negócios">
+  <meta property="og:description" content="Consultoria, desenvolvimento e suporte de tecnologia para empresas que querem crescer com segurança.">
+  <meta property="og:image" content="https://onixsolutions.com.br/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>document.documentElement.classList.add('js')</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +25,7 @@
     :root { --ink:#101b31; --muted:#647088; --blue:#1769ff; --cyan:#28c8e8; --line:#e5eaf2; --soft:#f5f8fc; --white:#fff; }
     * { box-sizing:border-box; margin:0; padding:0; }
     html { scroll-behavior:smooth; }
-    body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; overflow-x:hidden; }
+    body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; overflow-x:hidden; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
     h1,h2,h3 { font-family:'Manrope',sans-serif; letter-spacing:-.045em; }
     p { color:var(--muted); line-height:1.7; }
     a { color:inherit; text-decoration:none; }
@@ -26,8 +37,9 @@
     header { background:rgba(255,255,255,.9); border-bottom:1px solid rgba(229,234,242,.8); position:sticky; top:0; z-index:10; backdrop-filter:blur(18px); }
     nav { align-items:center; display:flex; height:78px; justify-content:space-between; }
     .brand { align-items:center; display:flex; gap:12px; }
-    .brand img { height:37px; width:auto; }
-    .brand small { border-left:1px solid var(--line); color:var(--muted); font-size:11px; letter-spacing:.08em; padding-left:12px; text-transform:uppercase; }
+    .brand img { display:block; width:auto; }.brand > img { height:40px; }
+    .brand-text { border-left:1px solid var(--ink); display:grid; gap:5px; padding-left:12px; }.brand-text img { height:22px; }
+    .brand small { color:var(--ink); font-size:9px; font-weight:600; letter-spacing:.34em; text-transform:uppercase; white-space:nowrap; }.brand small b { color:var(--blue); font-weight:inherit; }
     .nav-links { align-items:center; display:flex; gap:34px; list-style:none; }
     .nav-links a { color:#46536a; font-size:14px; font-weight:600; transition:color .2s; }
     .nav-links a:hover { color:var(--blue); }
@@ -61,15 +73,15 @@
     .process-grid { display:grid; gap:78px; grid-template-columns:.8fr 1.2fr; }.process-intro { position:relative; }.process-intro:after { background:var(--cyan); bottom:-50px; content:""; height:1px; left:0; position:absolute; width:90px; }.steps { display:grid; gap:0; }.step { border-bottom:1px solid var(--line); display:grid; gap:25px; grid-template-columns:40px 1fr; padding:0 0 28px; margin-bottom:28px; }.step-number { align-items:center; border:1px solid #cbd8ec; border-radius:50%; color:var(--blue); display:flex; font-family:'Manrope'; font-size:13px; font-weight:800; height:34px; justify-content:center; width:34px; }.step h3 { font-size:18px; margin-bottom:7px; }.step p { font-size:14px; }
     .contact { padding-top:20px; }.contact-box { align-items:center; background:linear-gradient(110deg,var(--ink),#164896); border-radius:16px; color:white; display:flex; justify-content:space-between; overflow:hidden; padding:61px 70px; position:relative; }.contact-box:after { border:1px solid rgba(40,200,232,.45); border-radius:50%; content:""; height:320px; position:absolute; right:-70px; top:-170px; width:320px; }.contact-box h2 { font-size:clamp(28px,4vw,42px); line-height:1.12; max-width:550px; position:relative; z-index:1; }.contact-box p { color:#b9c9df; font-size:15px; margin-top:13px; position:relative; z-index:1; }.contact-box .button { background:white; color:var(--blue); flex-shrink:0; position:relative; z-index:1; }
     footer { background:#0a1324; color:#b9c6d9; padding:40px 0; }.footer-row { align-items:center; display:flex; justify-content:space-between; }.footer-brand { color:white; font-family:'Manrope'; font-size:15px; font-weight:800; }.footer-brand span { color:var(--cyan); }.footer-row p { font-size:12px; }
-    .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }.reveal.visible { opacity:1; transform:none; }
-    @media (max-width:800px) { .topbar { display:none; } .container { width:min(100% - 34px, 600px); } nav { height:68px; }.brand small,.nav-links li:not(:last-child) { display:none; }.nav-links { gap:0; }.nav-cta { padding:10px 14px; }.hero { min-height:auto; padding:70px 0 65px; }.hero-grid,.process-grid { gap:45px; grid-template-columns:1fr; }.hero-copy h1 { font-size:44px; }.hero-copy > p { font-size:16px; }.dashboard { transform:none; }.proof .container,.footer-row { align-items:flex-start; flex-direction:column; gap:18px; }.proof-list { flex-wrap:wrap; gap:16px 24px; }.cards { grid-template-columns:1fr; } section { padding:76px 0; }.section-head { margin-bottom:32px; }.contact-box { align-items:flex-start; flex-direction:column; gap:30px; padding:40px 27px; }.contact { padding-top:0; } }
-    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.reveal { opacity:1; transform:none; transition:none; } }
+    .js .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }.js .reveal.visible { opacity:1; transform:none; }
+    @media (max-width:800px) { .topbar { display:none; } .container { width:min(100% - 34px, 600px); } nav { height:68px; }.nav-links li:not(:last-child) { display:none; }.nav-links { gap:0; }.nav-cta { padding:10px 14px; }.hero { min-height:auto; padding:70px 0 65px; }.hero-grid,.process-grid { gap:45px; grid-template-columns:1fr; }.hero-copy h1 { font-size:44px; }.hero-copy > p { font-size:16px; }.dashboard { transform:none; }.proof .container,.footer-row { align-items:flex-start; flex-direction:column; gap:18px; }.proof-list { flex-wrap:wrap; gap:16px 24px; }.cards { grid-template-columns:1fr; } section { padding:76px 0; }.section-head { margin-bottom:32px; }.contact-box { align-items:flex-start; flex-direction:column; gap:30px; padding:40px 27px; }.contact { padding-top:0; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; }.js .reveal { opacity:1; transform:none; transition:none; } }
   </style>
 </head>
 <body>
   <div class="topbar"><div class="container"><span>ONIX Soluções em Tecnologia</span><span>Atendimento para todo o Brasil</span></div></div>
   <header><nav class="container">
-    <a class="brand" href="#inicio"><img src="ONIX_logo.png" alt="ONIX"><small>Soluções em TI</small></a>
+    <a class="brand" href="#inicio" aria-label="ONIX Soluções em TI"><img src="logo-simbolo.png" alt="" width="56" height="40"><span class="brand-text"><img src="logo-onix.png" alt="" width="102" height="22"><small>Soluções em <b>TI</b></small></span></a>
     <ul class="nav-links"><li><a href="#servicos">Soluções</a></li><li><a href="#processo">Como trabalhamos</a></li><li><a class="nav-cta" href="#contato">Fale com a ONIX</a></li></ul>
   </nav></header>
   <main>
@@ -82,7 +94,7 @@
     <section id="processo"><div class="container process-grid"><div class="section-head process-intro reveal"><div class="eyebrow">Nosso processo</div><h2>Menos complexidade. Mais resultado.</h2><p>Trabalhamos de forma transparente, colaborativa e orientada ao impacto real no seu negócio.</p></div><div class="steps"><div class="step reveal"><div class="step-number">01</div><div><h3>Diagnóstico</h3><p>Entendemos seu contexto, desafios e objetivos antes de propor qualquer caminho.</p></div></div><div class="step reveal"><div class="step-number">02</div><div><h3>Estratégia</h3><p>Transformamos necessidades em um plano claro, priorizado e possível de executar.</p></div></div><div class="step reveal"><div class="step-number">03</div><div><h3>Implementação</h3><p>Colocamos a solução em prática com agilidade, acompanhamento e comunicação constante.</p></div></div><div class="step reveal"><div class="step-number">04</div><div><h3>Evolução</h3><p>Monitoramos os resultados e seguimos aprimorando sua operação continuamente.</p></div></div></div></div></section>
     <section class="contact" id="contato"><div class="container"><div class="contact-box reveal"><div><div class="eyebrow" style="color:#73e5f2">Pronto para avançar?</div><h2>Vamos transformar seu próximo desafio em resultado.</h2><p>Conte um pouco sobre o seu cenário.</p></div><a class="button" href="mailto:contato@onixsolutions.com.br">Falar com um especialista →</a></div></div></section>
   </main>
-  <footer><div class="container footer-row"><div class="footer-brand">ONIX <span>/</span> Soluções em TI</div><p>contato@onixsolutions.com.br · © ONIX</p></div></footer>
+  <footer><div class="container footer-row"><div class="footer-brand">ONIX <span>/</span> Soluções em TI</div><p>contato@onixsolutions.com.br · © 2026 ONIX</p></div></footer>
   <script>
     const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
